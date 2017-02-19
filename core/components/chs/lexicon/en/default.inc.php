@@ -8,6 +8,8 @@ $_lang['chs_intro_msg'] = 'You can select multiple items by holding Shift or Ctr
 $_lang['chs_items'] = 'Items';
 $_lang['chs_item_id'] = 'Id';
 $_lang['chs_item_name'] = 'Name';
+$_lang['chs_item_secondname'] = 'Name';
+$_lang['chs_item_family'] = 'Name';
 $_lang['chs_item_description'] = 'Description';
 $_lang['chs_item_active'] = 'Active';
 

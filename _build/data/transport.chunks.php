@@ -5,12 +5,8 @@
 $chunks = array();
 
 $tmp = array(
-    'tpl.CHS.item' => array(
-        'file' => 'item',
-        'description' => '',
-    ),
-    'tpl.CHS.office' => array(
-        'file' => 'office',
+    'tpl.CHS.fizik' => array(
+        'file' => 'fizik.form',
         'description' => '',
     ),
 );

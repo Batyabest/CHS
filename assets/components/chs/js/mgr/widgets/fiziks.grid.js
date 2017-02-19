@@ -182,7 +182,7 @@ Ext.extend(CHS.grid.Fiziks, MODx.grid.Grid, {
     },
 
     getFields: function () {
-        return ['id', 'name', 'description', 'active', 'actions'];
+        return ['id', 'name','secondname','family', 'description', 'active', 'actions'];
     },
 
     getColumns: function () {
@@ -194,6 +194,16 @@ Ext.extend(CHS.grid.Fiziks, MODx.grid.Grid, {
         }, {
             header: _('chs_fizik_name'),
             dataIndex: 'name',
+            sortable: true,
+            width: 200,
+        }, {
+            header: _('chs_fizik_secondname'),
+            dataIndex: 'secondname',
+            sortable: true,
+            width: 200,
+        }, {
+            header: _('chs_fizik_family'),
+            dataIndex: 'family',
             sortable: true,
             width: 200,
         }, {

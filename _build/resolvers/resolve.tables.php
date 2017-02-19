@@ -6,7 +6,7 @@ if ($object->xpdo) {
 
     switch ($options[xPDOTransport::PACKAGE_ACTION]) {
         case xPDOTransport::ACTION_INSTALL:
-            $modelPath = $modx->getOption('chs_core_path' ,null,$modx->getOption('core_path').'conponents/chs/').'model/';
+            $modelPath = $modx->getOption('chs_core_path' ,null,$modx->getOption('core_path').'components/chs/').'model/';
             $modx->addPackage('chs',$modelPath);
 
             $manager = $modx->getManager();

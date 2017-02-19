@@ -5,7 +5,7 @@ class chsFizikGetListProcessor extends modObjectGetListProcessor
     public $objectType = 'chsFizik';
     public $classKey = 'chsFizik';
     public $defaultSortField = 'id';
-    public $defaultSortDirection = 'DESC';
+    public $defaultSortDirection = 'ASC';
     //public $permission = 'list';
 
 

@@ -1,32 +1,25 @@
 <?php
-/** @var modX $modx */
 /** @var array $scriptProperties */
 /** @var CHS $CHS */
-if (!$CHS = $modx->getService('chs', 'CHS', $modx->getOption('chs_core_path', null,
-        $modx->getOption('core_path') . 'components/chs/') . 'model/chs/', $scriptProperties)
-) {
-    return 'Could not load CHS class!';
+$CHS = $modx->getService('chs', 'CHS', $modx->getOption('chs_core_path', null, $modx->getOption('core_path') . 'components/chs/') . 'model/chs/', $scriptProperties);
+/** @var pdoTools $pdoTools */
+$pdoTools = $modx->getService('pdoTools');
+
+
+if (!($CHS instanceof CHS) || !($pdoTools instanceof pdoTools)) return '';
+
+if (!$modx->user->isAuthenticated($modx->context->key)) {
+	return $modx->lexicon('chs_err_auth_req');
 }
-
-// Do your snippet code here. This demo grabs 5 items from our custom table.
-$tpl = $modx->getOption('tpl', $scriptProperties, 'Item');
-$sortby = $modx->getOption('sortby', $scriptProperties, 'name');
-$sortdir = $modx->getOption('sortbir', $scriptProperties, 'ASC');
-$limit = $modx->getOption('limit', $scriptProperties, 5);
-$outputSeparator = $modx->getOption('outputSeparator', $scriptProperties, "\n");
-$toPlaceholder = $modx->getOption('toPlaceholder', $scriptProperties, false);
-
-// Build query
-$c = $modx->newQuery('CHSItem');
-$c->sortby($sortby, $sortdir);
-$c->limit($limit);
-$items = $modx->getIterator('CHSItem', $c);
+elseif (empty($id) || !$fizik = $modx->getObject('chsFizik', 1)) {
+	return $modx->lexicon('chs_fizik_err_ns');
+}
 
 // Iterate through items
 $list = array();
-/** @var CHSItem $item */
-foreach ($items as $item) {
-    $list[] = $modx->getChunk($tpl, $item->toArray());
+/** @var chsFizik $fizik */
+foreach ($fiziks as $fizik) {
+    $list[] = $modx->getChunk($tpl, $fizik->toArray());
 }
 
 // Output

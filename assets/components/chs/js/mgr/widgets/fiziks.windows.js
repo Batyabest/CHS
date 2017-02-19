@@ -28,6 +28,20 @@ Ext.extend(CHS.window.CreateFizik, MODx.Window, {
             id: config.id + '-name',
             anchor: '99%',
             allowBlank: false,
+        },{
+            xtype: 'textfield',
+            fieldLabel: _('chs_fizik_secondname'),
+            name: 'secondname',
+            id: config.id + '-secondname',
+            anchor: '99%',
+            allowBlank: false,
+        },{
+            xtype: 'textfield',
+            fieldLabel: _('chs_fizik_family'),
+            name: 'family',
+            id: config.id + '-family',
+            anchor: '99%',
+            allowBlank: false,
         }, {
             xtype: 'textarea',
             fieldLabel: _('chs_fizik_description'),
