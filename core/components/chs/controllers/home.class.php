@@ -59,8 +59,8 @@ class CHSHomeManagerController extends modExtraManagerController
         $this->addJavascript($this->CHS->config['jsUrl'] . 'mgr/chs.js');
         $this->addJavascript($this->CHS->config['jsUrl'] . 'mgr/misc/utils.js');
         $this->addJavascript($this->CHS->config['jsUrl'] . 'mgr/misc/combo.js');
-        $this->addJavascript($this->CHS->config['jsUrl'] . 'mgr/widgets/items.grid.js');
-        $this->addJavascript($this->CHS->config['jsUrl'] . 'mgr/widgets/items.windows.js');
+        $this->addJavascript($this->CHS->config['jsUrl'] . 'mgr/widgets/fiziks.grid.js');
+        $this->addJavascript($this->CHS->config['jsUrl'] . 'mgr/widgets/fiziks.windows.js');
         $this->addJavascript($this->CHS->config['jsUrl'] . 'mgr/widgets/home.panel.js');
         $this->addJavascript($this->CHS->config['jsUrl'] . 'mgr/sections/home.js');
 

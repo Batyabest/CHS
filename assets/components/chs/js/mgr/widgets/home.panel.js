@@ -20,13 +20,13 @@ CHS.panel.Home = function (config) {
             border: true,
             hideMode: 'offsets',
             items: [{
-                title: _('chs_items'),
+                title: _('chs_fiziks'),
                 layout: 'anchor',
                 items: [{
-                    html: _('chs_intro_msg'),
+                    html: _('chs_fizik_intro'),
                     cls: 'panel-desc',
                 }, {
-                    xtype: 'chs-grid-items',
+                    xtype: 'chs-grid-fiziks',
                     cls: 'main-wrapper',
                 }]
             }]

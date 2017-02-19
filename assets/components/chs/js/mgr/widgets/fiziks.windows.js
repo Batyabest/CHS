@@ -1,14 +1,14 @@
-CHS.window.CreateItem = function (config) {
+CHS.window.CreateFizik = function (config) {
     config = config || {};
     if (!config.id) {
-        config.id = 'chs-item-window-create';
+        config.id = 'chs-fizik-window-create';
     }
     Ext.applyIf(config, {
-        title: _('chs_item_create'),
+        title: _('chs_fizik_create'),
         width: 550,
         autoHeight: true,
         url: CHS.config.connector_url,
-        action: 'mgr/item/create',
+        action: 'mgr/fizik/create',
         fields: this.getFields(config),
         keys: [{
             key: Ext.EventObject.ENTER, shift: true, fn: function () {
@@ -16,28 +16,28 @@ CHS.window.CreateItem = function (config) {
             }, scope: this
         }]
     });
-    CHS.window.CreateItem.superclass.constructor.call(this, config);
+    CHS.window.CreateFizik.superclass.constructor.call(this, config);
 };
-Ext.extend(CHS.window.CreateItem, MODx.Window, {
+Ext.extend(CHS.window.CreateFizik, MODx.Window, {
 
     getFields: function (config) {
         return [{
             xtype: 'textfield',
-            fieldLabel: _('chs_item_name'),
+            fieldLabel: _('chs_fizik_name'),
             name: 'name',
             id: config.id + '-name',
             anchor: '99%',
             allowBlank: false,
         }, {
             xtype: 'textarea',
-            fieldLabel: _('chs_item_description'),
+            fieldLabel: _('chs_fizik_description'),
             name: 'description',
             id: config.id + '-description',
             height: 150,
             anchor: '99%'
         }, {
             xtype: 'xcheckbox',
-            boxLabel: _('chs_item_active'),
+            boxLabel: _('chs_fizik_active'),
             name: 'active',
             id: config.id + '-active',
             checked: true,
@@ -48,20 +48,20 @@ Ext.extend(CHS.window.CreateItem, MODx.Window, {
     }
 
 });
-Ext.reg('chs-item-window-create', CHS.window.CreateItem);
+Ext.reg('chs-fizik-window-create', CHS.window.CreateFizik);
 
 
-CHS.window.UpdateItem = function (config) {
+CHS.window.UpdateFizik = function (config) {
     config = config || {};
     if (!config.id) {
-        config.id = 'chs-item-window-update';
+        config.id = 'chs-fizik-window-update';
     }
     Ext.applyIf(config, {
-        title: _('chs_item_update'),
+        title: _('chs_fizik_update'),
         width: 550,
         autoHeight: true,
         url: CHS.config.connector_url,
-        action: 'mgr/item/update',
+        action: 'mgr/fizik/update',
         fields: this.getFields(config),
         keys: [{
             key: Ext.EventObject.ENTER, shift: true, fn: function () {
@@ -69,9 +69,9 @@ CHS.window.UpdateItem = function (config) {
             }, scope: this
         }]
     });
-    CHS.window.UpdateItem.superclass.constructor.call(this, config);
+    CHS.window.UpdateFizik.superclass.constructor.call(this, config);
 };
-Ext.extend(CHS.window.UpdateItem, MODx.Window, {
+Ext.extend(CHS.window.UpdateFizik, MODx.Window, {
 
     getFields: function (config) {
         return [{
@@ -80,21 +80,21 @@ Ext.extend(CHS.window.UpdateItem, MODx.Window, {
             id: config.id + '-id',
         }, {
             xtype: 'textfield',
-            fieldLabel: _('chs_item_name'),
+            fieldLabel: _('chs_fizik_name'),
             name: 'name',
             id: config.id + '-name',
             anchor: '99%',
             allowBlank: false,
         }, {
             xtype: 'textarea',
-            fieldLabel: _('chs_item_description'),
+            fieldLabel: _('chs_fizik_description'),
             name: 'description',
             id: config.id + '-description',
             anchor: '99%',
             height: 150,
         }, {
             xtype: 'xcheckbox',
-            boxLabel: _('chs_item_active'),
+            boxLabel: _('chs_fizik_active'),
             name: 'active',
             id: config.id + '-active',
         }];
@@ -104,4 +104,4 @@ Ext.extend(CHS.window.UpdateItem, MODx.Window, {
     }
 
 });
-Ext.reg('chs-item-window-update', CHS.window.UpdateItem);
+Ext.reg('chs-fizik-window-update', CHS.window.UpdateFizik);

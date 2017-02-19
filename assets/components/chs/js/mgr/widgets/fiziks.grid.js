@@ -1,7 +1,7 @@
-CHS.grid.Items = function (config) {
+CHS.grid.Fiziks = function (config) {
     config = config || {};
     if (!config.id) {
-        config.id = 'chs-grid-items';
+        config.id = 'chs-grid-fiziks';
     }
     Ext.applyIf(config, {
         url: CHS.config.connector_url,
@@ -10,12 +10,12 @@ CHS.grid.Items = function (config) {
         tbar: this.getTopBar(config),
         sm: new Ext.grid.CheckboxSelectionModel(),
         baseParams: {
-            action: 'mgr/item/getlist'
+            action: 'mgr/fizik/getlist'
         },
         listeners: {
             rowDblClick: function (grid, rowIndex, e) {
                 var row = grid.store.getAt(rowIndex);
-                this.updateItem(grid, e, row);
+                this.updateFizik(grid, e, row);
             }
         },
         viewConfig: {
@@ -34,7 +34,7 @@ CHS.grid.Items = function (config) {
         remoteSort: true,
         autoHeight: true,
     });
-    CHS.grid.Items.superclass.constructor.call(this, config);
+    CHS.grid.Fiziks.superclass.constructor.call(this, config);
 
     // Clear selection on grid refresh
     this.store.on('load', function () {
@@ -43,7 +43,7 @@ CHS.grid.Items = function (config) {
         }
     }, this);
 };
-Ext.extend(CHS.grid.Items, MODx.grid.Grid, {
+Ext.extend(CHS.grid.Fiziks, MODx.grid.Grid, {
     windows: {},
 
     getMenu: function (grid, rowIndex) {
@@ -52,12 +52,12 @@ Ext.extend(CHS.grid.Items, MODx.grid.Grid, {
         var row = grid.getStore().getAt(rowIndex);
         var menu = CHS.utils.getMenu(row.data['actions'], this, ids);
 
-        this.addContextMenuItem(menu);
+        this.addContextMenuFizik(menu);
     },
 
-    createItem: function (btn, e) {
+    createFizik: function (btn, e) {
         var w = MODx.load({
-            xtype: 'chs-item-window-create',
+            xtype: 'chs-fizik-window-create',
             id: Ext.id(),
             listeners: {
                 success: {
@@ -72,7 +72,7 @@ Ext.extend(CHS.grid.Items, MODx.grid.Grid, {
         w.show(e.target);
     },
 
-    updateItem: function (btn, e, row) {
+    updateFizik: function (btn, e, row) {
         if (typeof(row) != 'undefined') {
             this.menu.record = row.data;
         }
@@ -84,14 +84,14 @@ Ext.extend(CHS.grid.Items, MODx.grid.Grid, {
         MODx.Ajax.request({
             url: this.config.url,
             params: {
-                action: 'mgr/item/get',
+                action: 'mgr/fizik/get',
                 id: id
             },
             listeners: {
                 success: {
                     fn: function (r) {
                         var w = MODx.load({
-                            xtype: 'chs-item-window-update',
+                            xtype: 'chs-fizik-window-update',
                             id: Ext.id(),
                             record: r,
                             listeners: {
@@ -111,21 +111,21 @@ Ext.extend(CHS.grid.Items, MODx.grid.Grid, {
         });
     },
 
-    removeItem: function () {
+    removeFizik: function () {
         var ids = this._getSelectedIds();
         if (!ids.length) {
             return false;
         }
         MODx.msg.confirm({
             title: ids.length > 1
-                ? _('chs_items_remove')
-                : _('chs_item_remove'),
+                ? _('chs_fiziks_remove')
+                : _('chs_fizik_remove'),
             text: ids.length > 1
-                ? _('chs_items_remove_confirm')
-                : _('chs_item_remove_confirm'),
+                ? _('chs_fiziks_remove_confirm')
+                : _('chs_fizik_remove_confirm'),
             url: this.config.url,
             params: {
-                action: 'mgr/item/remove',
+                action: 'mgr/fizik/remove',
                 ids: Ext.util.JSON.encode(ids),
             },
             listeners: {
@@ -139,7 +139,7 @@ Ext.extend(CHS.grid.Items, MODx.grid.Grid, {
         return true;
     },
 
-    disableItem: function () {
+    disableFizik: function () {
         var ids = this._getSelectedIds();
         if (!ids.length) {
             return false;
@@ -147,7 +147,7 @@ Ext.extend(CHS.grid.Items, MODx.grid.Grid, {
         MODx.Ajax.request({
             url: this.config.url,
             params: {
-                action: 'mgr/item/disable',
+                action: 'mgr/fizik/disable',
                 ids: Ext.util.JSON.encode(ids),
             },
             listeners: {
@@ -160,7 +160,7 @@ Ext.extend(CHS.grid.Items, MODx.grid.Grid, {
         })
     },
 
-    enableItem: function () {
+    enableFizik: function () {
         var ids = this._getSelectedIds();
         if (!ids.length) {
             return false;
@@ -168,7 +168,7 @@ Ext.extend(CHS.grid.Items, MODx.grid.Grid, {
         MODx.Ajax.request({
             url: this.config.url,
             params: {
-                action: 'mgr/item/enable',
+                action: 'mgr/fizik/enable',
                 ids: Ext.util.JSON.encode(ids),
             },
             listeners: {
@@ -187,22 +187,22 @@ Ext.extend(CHS.grid.Items, MODx.grid.Grid, {
 
     getColumns: function () {
         return [{
-            header: _('chs_item_id'),
+            header: _('chs_fizik_id'),
             dataIndex: 'id',
             sortable: true,
             width: 70
         }, {
-            header: _('chs_item_name'),
+            header: _('chs_fizik_name'),
             dataIndex: 'name',
             sortable: true,
             width: 200,
         }, {
-            header: _('chs_item_description'),
+            header: _('chs_fizik_description'),
             dataIndex: 'description',
             sortable: false,
             width: 250,
         }, {
-            header: _('chs_item_active'),
+            header: _('chs_fizik_active'),
             dataIndex: 'active',
             renderer: CHS.utils.renderBoolean,
             sortable: true,
@@ -219,8 +219,8 @@ Ext.extend(CHS.grid.Items, MODx.grid.Grid, {
 
     getTopBar: function () {
         return [{
-            text: '<i class="icon icon-plus"></i>&nbsp;' + _('chs_item_create'),
-            handler: this.createItem,
+            text: '<i class="icon icon-plus"></i>&nbsp;' + _('chs_fizik_create'),
+            handler: this.createFizik,
             scope: this
         }, '->', {
             xtype: 'chs-field-search',
@@ -284,4 +284,4 @@ Ext.extend(CHS.grid.Items, MODx.grid.Grid, {
         this.getBottomToolbar().changePage(1);
     },
 });
-Ext.reg('chs-grid-items', CHS.grid.Items);
+Ext.reg('chs-grid-fiziks', CHS.grid.Fiziks);

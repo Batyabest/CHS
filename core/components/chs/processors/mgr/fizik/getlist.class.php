@@ -1,9 +1,9 @@
 <?php
 
-class CHSItemGetListProcessor extends modObjectGetListProcessor
+class chsFizikGetListProcessor extends modObjectGetListProcessor
 {
-    public $objectType = 'CHSItem';
-    public $classKey = 'CHSItem';
+    public $objectType = 'chsFizik';
+    public $classKey = 'chsFizik';
     public $defaultSortField = 'id';
     public $defaultSortDirection = 'DESC';
     //public $permission = 'list';
@@ -58,9 +58,9 @@ class CHSItemGetListProcessor extends modObjectGetListProcessor
         $array['actions'][] = array(
             'cls' => '',
             'icon' => 'icon icon-edit',
-            'title' => $this->modx->lexicon('chs_item_update'),
-            //'multiple' => $this->modx->lexicon('chs_items_update'),
-            'action' => 'updateItem',
+            'title' => $this->modx->lexicon('chs_fizik_update'),
+            //'multiple' => $this->modx->lexicon('chs_fiziks_update'),
+            'action' => 'updateFizik',
             'button' => true,
             'menu' => true,
         );
@@ -69,9 +69,9 @@ class CHSItemGetListProcessor extends modObjectGetListProcessor
             $array['actions'][] = array(
                 'cls' => '',
                 'icon' => 'icon icon-power-off action-green',
-                'title' => $this->modx->lexicon('chs_item_enable'),
-                'multiple' => $this->modx->lexicon('chs_items_enable'),
-                'action' => 'enableItem',
+                'title' => $this->modx->lexicon('chs_fizik_enable'),
+                'multiple' => $this->modx->lexicon('chs_fiziks_enable'),
+                'action' => 'enableFizik',
                 'button' => true,
                 'menu' => true,
             );
@@ -79,9 +79,9 @@ class CHSItemGetListProcessor extends modObjectGetListProcessor
             $array['actions'][] = array(
                 'cls' => '',
                 'icon' => 'icon icon-power-off action-gray',
-                'title' => $this->modx->lexicon('chs_item_disable'),
-                'multiple' => $this->modx->lexicon('chs_items_disable'),
-                'action' => 'disableItem',
+                'title' => $this->modx->lexicon('chs_fizik_disable'),
+                'multiple' => $this->modx->lexicon('chs_fiziks_disable'),
+                'action' => 'disableFizik',
                 'button' => true,
                 'menu' => true,
             );
@@ -91,9 +91,9 @@ class CHSItemGetListProcessor extends modObjectGetListProcessor
         $array['actions'][] = array(
             'cls' => '',
             'icon' => 'icon icon-trash-o action-red',
-            'title' => $this->modx->lexicon('chs_item_remove'),
-            'multiple' => $this->modx->lexicon('chs_items_remove'),
-            'action' => 'removeItem',
+            'title' => $this->modx->lexicon('chs_fizik_remove'),
+            'multiple' => $this->modx->lexicon('chs_fiziks_remove'),
+            'action' => 'removeFizik',
             'button' => true,
             'menu' => true,
         );
@@ -103,4 +103,4 @@ class CHSItemGetListProcessor extends modObjectGetListProcessor
 
 }
 
-return 'CHSItemGetListProcessor';
+return 'chsFizikGetListProcessor';
