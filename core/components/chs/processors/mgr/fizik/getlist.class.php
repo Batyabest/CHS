@@ -15,6 +15,7 @@ class chsFizikGetListProcessor extends modObjectGetListProcessor
      *
      * @return boolean|string
      */
+
     public function beforeQuery()
     {
         if (!$this->checkPermissions()) {

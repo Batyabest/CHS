@@ -8,6 +8,7 @@ class chsFizikCreateProcessor extends modObjectCreateProcessor
     //public $permission = 'create';
 
 
+
     /**
      * @return bool
      */
