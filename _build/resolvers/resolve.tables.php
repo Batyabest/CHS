@@ -14,8 +14,8 @@ if ($object->xpdo) {
                 'chsFizik',
                 'chsYurik',
             );
-            foreach ($objects as $object) {
-                $manager->createObjectContainer($object);
+            foreach ($objects as $tmp) {
+                $manager->createObjectContainer($tmp);
             }
             break;
 

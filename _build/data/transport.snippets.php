@@ -9,6 +9,10 @@ $tmp = array(
         'file' => 'chs',
         'description' => '',
     ),
+    'CHSGetInfo' => array(
+        'file' => 'chsgetinfo',
+        'description' => '',
+    ),
 );
 
 foreach ($tmp as $k => $v) {

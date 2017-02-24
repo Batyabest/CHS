@@ -5,9 +5,17 @@
 $chunks = array();
 
 $tmp = array(
-    'tpl.CHS.fizik' => array(
-        'file' => 'fizik.form',
-        'description' => '',
+    'tpl.CHS.item' => array(
+        'file' => 'item',
+        'description' => 'Чанк вывода списка ЧС',
+    ),
+    'tpl.CHS.info' => array(
+        'file' => 'info',
+        'description' => 'Чанк вывода подробной информации',
+    ),
+    'tpl.CHS.cashPhone' => array(
+        'file' => 'cashphone',
+        'description' => 'Чанк вывода формы запроса контактов',
     ),
 );
 
