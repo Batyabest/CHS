@@ -7,6 +7,8 @@ class chsFizikCreateProcessor extends modObjectCreateProcessor
     public $languageTopics = array('chs');
     //public $permission = 'create';
 
+
+
     /**
      * @return bool
      */

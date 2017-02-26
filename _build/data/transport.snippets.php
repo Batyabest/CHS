@@ -13,6 +13,10 @@ $tmp = array(
         'file' => 'chsgetinfo',
         'description' => '',
     ),
+    'CHSCreateItem' => array(
+        'file' => 'chscreateitem',
+        'description' => 'Сниппет создания записи с frontend',
+    ),
 );
 
 foreach ($tmp as $k => $v) {
