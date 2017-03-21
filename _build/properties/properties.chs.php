@@ -23,6 +23,18 @@ $tmp = array(
         'type' => 'numberfield',
         'value' => 10,
     ),
+    'showAll' => array(
+        'type' => 'combo-boolean',
+        'value' => true,
+    ),
+    'page' => array(
+        'type' => 'numberfield',
+        'value' => '',
+    ),
+    'showLog' => array(
+        'type' => 'combo-boolean',
+        'value' => false,
+    ),
     'outputSeparator' => array(
         'type' => 'textfield',
         'value' => "\n",

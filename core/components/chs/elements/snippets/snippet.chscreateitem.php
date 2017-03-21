@@ -13,5 +13,5 @@ if (!empty($_POST['name'])) {
 	$processorProps = array('processors_path' => $modx->getOption('core_path') . 'components/chs/processors/');
 	$response = $modx->runProcessor($processor, $_POST, $processorProps);
 
-	return $AjaxForm->success('Форма прошла проверку');
+	return $AjaxForm->success('Спасибо, данные занесены успешно');
 }

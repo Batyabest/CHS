@@ -9,9 +9,12 @@
 <div class="col-xs-6">
     <section class="widget">
         <h2>Информация</h2>
-        <p><strong>[[+name]] [[+secondname]] [[+family]]</strong></p>
+        <p><strong>ФИО:</strong> [[+name]] [[+secondname]] [[+family]]</p>
+        <p><strong>Город:</strong> [[+city_name]]</p>
+        <p><strong>Место работы:</strong> [[+organization]]</p>
+        <p><strong>Гос. номер автомобиля:</strong> [[+number_auto]]</p>
         <div class="chs-description">
-            [[+description]]
+            <strong>Описание поступка:</strong><br>[[+description]]
         </div>
     </section>
 </div>

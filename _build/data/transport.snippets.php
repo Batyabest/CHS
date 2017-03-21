@@ -7,11 +7,11 @@ $snippets = array();
 $tmp = array(
     'CHS' => array(
         'file' => 'chs',
-        'description' => '',
+        'description' => 'Сниппет вывода списка записей',
     ),
     'CHSGetInfo' => array(
         'file' => 'chsgetinfo',
-        'description' => '',
+        'description' => 'Сниппет вывода подробной информации',
     ),
     'CHSCreateItem' => array(
         'file' => 'chscreateitem',

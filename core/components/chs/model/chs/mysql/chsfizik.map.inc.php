@@ -9,6 +9,10 @@ $xpdo_meta_map['chsFizik']= array (
     'name' => '',
     'secondname' => '',
     'family' => '',
+    'city_name' => '',
+    'phone' => '',
+    'organization' => '',
+    'number_auto' => '',
     'description' => '',
     'image' => '',
     'uid' => 0,
@@ -36,6 +40,38 @@ $xpdo_meta_map['chsFizik']= array (
     array (
       'dbtype' => 'varchar',
       'precision' => '100',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
+    ),
+    'city_name' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '100',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
+    ),
+    'phone' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '100',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
+    ),
+    'organization' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '100',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
+    ),
+    'number_auto' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '10',
       'phptype' => 'string',
       'null' => false,
       'default' => '',
@@ -85,6 +121,38 @@ $xpdo_meta_map['chsFizik']= array (
       'columns' => 
       array (
         'name' => 
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+      ),
+    ),
+    'city_name' => 
+    array (
+      'alias' => 'city_name',
+      'primary' => false,
+      'unique' => false,
+      'type' => 'BTREE',
+      'columns' => 
+      array (
+        'city_name' => 
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+      ),
+    ),
+    'organization' => 
+    array (
+      'alias' => 'organization',
+      'primary' => false,
+      'unique' => false,
+      'type' => 'BTREE',
+      'columns' => 
+      array (
+        'organization' => 
         array (
           'length' => '',
           'collation' => 'A',

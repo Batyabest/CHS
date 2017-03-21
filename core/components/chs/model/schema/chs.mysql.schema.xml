@@ -5,6 +5,10 @@
         <field key="name" dbtype="varchar" precision="100" phptype="string" null="false" default="" />
         <field key="secondname" dbtype="varchar" precision="100" phptype="string" null="false" default="" />
         <field key="family" dbtype="varchar" precision="100" phptype="string" null="false" default="" />
+        <field key="city_name" dbtype="varchar" precision="100" phptype="string" null="false" default="" />
+        <field key="phone" dbtype="varchar" precision="100" phptype="string" null="false" default="" />
+        <field key="organization" dbtype="varchar" precision="100" phptype="string" null="false" default="" />
+        <field key="number_auto" dbtype="varchar" precision="10" phptype="string" null="false" default="" />
         <field key="description" dbtype="text" phptype="text" null="true" default="" />
         <field key="image" dbtype="varchar" precision="255" phptype="string" null="true" default="" />
         <field key="uid" dbtype="integer" precision="10" attributes="unsigned" phptype="integer" null="true" default="0" />
@@ -12,6 +16,12 @@
 
         <index alias="name" name="name" primary="false" unique="false" type="BTREE">
             <column key="name" length="" collation="A" null="false" />
+        </index>
+        <index alias="city_name" name="city_name" primary="false" unique="false" type="BTREE">
+            <column key="city_name" length="" collation="A" null="false" />
+        </index>
+        <index alias="organization" name="organization" primary="false" unique="false" type="BTREE">
+            <column key="organization" length="" collation="A" null="false" />
         </index>
         <index alias="active" name="active" primary="false" unique="false" type="BTREE">
             <column key="active" length="" collation="A" null="false" />
