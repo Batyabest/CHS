@@ -27,6 +27,14 @@ $tmp = array(
         'type' => 'combo-boolean',
         'value' => true,
     ),
+    'editItem' => array(
+        'type' => 'combo-boolean',
+        'value' => false,
+    ),
+    'active' => array(
+        'type' => 'combo-boolean',
+        'value' => true,
+    ),
     'page' => array(
         'type' => 'numberfield',
         'value' => '',

@@ -12,15 +12,14 @@ if (!$modx->user->isAuthenticated($modx->context->key)) {
 }
 
 // Получаем свойства и, если нужно, модернизируем их
-$tpl = $modx->getOption('tpl', $scriptProperties, 'FileItemTpl');
+$tpl = $modx->getOption('tpl', $scriptProperties);
 $limit = $modx->getOption('limit', $scriptProperties);
 $uid = $modx->getOption('uid', $scriptProperties, $modx->user->get('id'));
+$rid = $_GET['rid'];
 $showAll = $modx->getOption('showAll', $scriptProperties);
+$editItem = $modx->getOption('editItem', $scriptProperties);
+$active = $modx->getOption('active', $scriptProperties);
 
-
-//print "<pre>";
-//print_r($limit);
-//print "</pre>";
 
 if ($showAll == 1) {
 	$pdoFetch->setConfig(array(
@@ -28,6 +27,9 @@ if ($showAll == 1) {
 		'loadModels' => 'chs',
 		'select' => '*',
 		'return' => 'data',
+		'where' => array(
+			'active' => $active,
+		),
 		'limit' => $limit,
 	));
 }
@@ -40,20 +42,56 @@ else {
 		'select' => '*',
 		'return' => 'data',
 		'where' => array(
-			'uid' => $uid
+			'uid' => $uid,
+			'active' => $active,
 		),
 		'limit' => $limit,
 	));
 
 }
-$rows = $pdoFetch->run();
 
-//print "<pre>";
-//print_r(count($rows));
-//print "</pre>";
-$modx->toPlaceholder('count',count($rows),'chs');
-foreach ($rows as $row) {
-	$output .= $pdoFetch->getChunk($tpl, $row);
+if ($editItem == 1) {
+	$pdoFetch->setConfig(array(
+		'class' => 'chsFizik',
+		'loadModels' => 'chs',
+		'select' => '*',
+		'return' => 'data',
+		'where' => array(
+			'id' => $rid
+		),
+		'limit' => $limit,
+	));
 }
 
+
+$rows = $pdoFetch->run();
+
+if (count($rows) == 0) {
+	$modx->toPlaceholder('count', count($rows), 'chs');
+	$output = "<p>У Вас пока нет ни одной публикации</p>";
+}
+else if ($editItem == 1) {
+	foreach ($rows as $row) {
+
+	}
+	$modx->toPlaceholder('id', $row['id'], 'chs');
+	$modx->toPlaceholder('uid', $row['uid'], 'chs');
+	$modx->toPlaceholder('name', $row['name'], 'chs');
+	$modx->toPlaceholder('secondname', $row['secondname'], 'chs');
+	$modx->toPlaceholder('family', $row['family'], 'chs');
+	$modx->toPlaceholder('city_name', $row['city_name'], 'chs');
+	$modx->toPlaceholder('organization', $row['organization'], 'chs');
+	$modx->toPlaceholder('number_auto', $row['number_auto'], 'chs');
+	$modx->toPlaceholder('description', $row['description'], 'chs');
+	$modx->toPlaceholder('image', $row['image'], 'chs');
+	$modx->toPlaceholder('phone', $row['phone'], 'chs');
+	$modx->toPlaceholder('active', $row['active'], 'chs');
+	$output = '';
+}
+else {
+	$modx->toPlaceholder('count', count($rows), 'chs');
+	foreach ($rows as $row) {
+		$output .= $pdoFetch->getChunk($tpl, $row);
+	}
+}
 return $output;

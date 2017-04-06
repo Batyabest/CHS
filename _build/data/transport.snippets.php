@@ -17,6 +17,10 @@ $tmp = array(
         'file' => 'chscreateitem',
         'description' => 'Сниппет создания записи с frontend',
     ),
+    'CHSEditItem' => array(
+        'file' => 'chsedititem',
+        'description' => 'Сниппет редактирования записи с frontend',
+    ),
 );
 
 foreach ($tmp as $k => $v) {
