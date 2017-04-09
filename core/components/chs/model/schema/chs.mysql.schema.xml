@@ -12,6 +12,7 @@
         <field key="description" dbtype="text" phptype="text" null="true" default="" />
         <field key="image" dbtype="varchar" precision="255" phptype="string" null="true" default="" />
         <field key="uid" dbtype="integer" precision="10" attributes="unsigned" phptype="integer" null="true" default="0" />
+        <field key="show_autor" dbtype="tinyint" precision="1" phptype="boolean" attributes="unsigned" null="true" default="1" />
         <field key="active" dbtype="tinyint" precision="1" phptype="boolean" attributes="unsigned" null="true" default="1" />
 
         <index alias="name" name="name" primary="false" unique="false" type="BTREE">

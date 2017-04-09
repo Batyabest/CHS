@@ -16,6 +16,7 @@ $xpdo_meta_map['chsFizik']= array (
     'description' => '',
     'image' => '',
     'uid' => 0,
+    'show_autor' => 1,
     'active' => 1,
   ),
   'fieldMeta' => 
@@ -99,6 +100,15 @@ $xpdo_meta_map['chsFizik']= array (
       'phptype' => 'integer',
       'null' => true,
       'default' => 0,
+    ),
+    'show_autor' => 
+    array (
+      'dbtype' => 'tinyint',
+      'precision' => '1',
+      'phptype' => 'boolean',
+      'attributes' => 'unsigned',
+      'null' => true,
+      'default' => 1,
     ),
     'active' => 
     array (

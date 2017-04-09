@@ -10,7 +10,13 @@ class chsFizikCreateProcessor extends modObjectCreateProcessor
     /**
      * @return bool
      */
+    // Если нужно вывести переданные в процессор параметры, раскоментируй блок
 
+    /*public function process() {
+
+        print_r($this->getProperties());
+        die();
+    }*/
 
     public function beforeSet()
     {
@@ -51,6 +57,15 @@ class chsFizikCreateProcessor extends modObjectCreateProcessor
 
         $this->setProperty('image', '/assets/' . $file_dir.$filename);
 
+        $anonim = $this->getProperty('anonim');
+        if ($anonim == 1) {
+            $this->setProperty('uid', 0);
+        }
+
+        $show_autor = $this->getProperty('show_autor');
+        if ($show_autor == '') {
+            $this->setProperty('show_autor', 0);
+        }
 
         $name = trim($this->getProperty('name'));
         if (empty($name)) {

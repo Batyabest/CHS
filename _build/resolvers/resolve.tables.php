@@ -17,7 +17,7 @@ if ($object->xpdo) {
             foreach ($objects as $tmp) {
                 $manager->createObjectContainer($tmp);
             }
-
+            
             break;
 
         case xPDOTransport::ACTION_UPGRADE:
