@@ -21,11 +21,21 @@ $uid = $modx->getOption('uid', $scriptProperties, $modx->user->get('id'));
 if (!empty($_GET['rid'])) {
 	$rid = $_GET['rid'];
 }
+
 $showAll = $modx->getOption('showAll', $scriptProperties);
 $editItem = $modx->getOption('editItem', $scriptProperties);
 $active = $modx->getOption('active', $scriptProperties);
+$query = $modx->getOption('query', $_POST, '', true); // Получаем поисковый запрос с простого поиска
+// Получаем параметры см расгширенного поиска
+$rsearch = $modx->getOption('rsearch', $_POST, '', true);
+$search_name = $modx->getOption('search_name', $_POST, '', true);
+$search_family = $modx->getOption('search_family', $_POST, '', true);
+$search_organization = $modx->getOption('search_organization', $_POST, '', true);
+$search_city = $modx->getOption('search_city', $_POST, '', true);
 
-
+//print "<pre>";
+//print_r($_POST);
+//print "</pre>";
 
 if ($showAll != 1) {
 	$pdoFetch->setConfig(array(
@@ -41,6 +51,22 @@ if ($showAll != 1) {
 	));
 }
 
+else if ($rsearch == 1) {
+	$pdoFetch->setConfig(array(
+		'class' => 'chsFizik',
+		'loadModels' => 'chs',
+		'select' => '*',
+		'return' => 'data',
+		'where' => array(
+			'active' => $active,
+			'name:LIKE' => $search_name,
+			'family:LIKE' => $search_family,
+			'organization:LIKE' => $search_organization,
+			'city_name:LIKE' => $search_city,
+		),
+		'limit' => $limit,
+	));
+}
 
 else {
 
@@ -51,6 +77,7 @@ else {
 		'return' => 'data',
 		'where' => array(
 			'active' => $active,
+			'name:LIKE' => $query,
 		),
 		'limit' => $limit,
 	));
