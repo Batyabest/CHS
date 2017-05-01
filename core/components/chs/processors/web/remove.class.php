@@ -13,13 +13,19 @@ class chsFizikRemoveProcessor extends modObjectRemoveProcessor
     // Если нужно вывести переданные в процессор параметры, раскоментируй блок
 
     /*public function process() {
+        print "<pre>";
+        print_r($this->object->get('uid'));
+        print_r($this->object->get('uid'));
+        print "</pre>";
 
         print_r($this->getProperties());
         die();
     }*/
 
     public function beforeRemove() {
+
         if (!$this->modx->user->id) return 'Вам нужно авторизоваться';
+        
         if ($this->object->get('uid') != $this->modx->user->id)
             return 'Вы не можете удалять чужие записи';
         return true;

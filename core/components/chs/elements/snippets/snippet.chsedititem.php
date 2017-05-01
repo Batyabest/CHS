@@ -8,10 +8,18 @@ $pdoFetch = $modx->getService('pdoFetch');
 if (!($CHS instanceof CHS) || !($pdoFetch instanceof pdoFetch)) return '';
 
 /* Ajax проверка на заполненность полей */
-if (!empty($_POST['name'])) {
+if (!empty($_POST['name']) && (($_POST['delete']) != 1)) {
 	$processor = 'web/update';
 	$processorProps = array('processors_path' => $modx->getOption('core_path') . 'components/chs/processors/');
 	$response = $modx->runProcessor($processor, $_POST, $processorProps);
 
 	return $AjaxForm->success('Спасибо, данные занесены успешно');
+}
+
+
+else if (($_POST['delete']) == 1) {
+	$processor = 'web/remove';
+	$processorProps = array('processors_path' => $modx->getOption('core_path') . 'components/chs/processors/');
+	$response = $modx->runProcessor($processor, $_POST, $processorProps);
+	return $AjaxForm->success('Спасибо, данные удалены успешно');
 }
